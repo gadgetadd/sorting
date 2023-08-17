@@ -31,3 +31,8 @@
     letter-spacing: 1px;
     resize: none;
 }
+
+.students-list {
+    max-width: 480px;
+    margin: auto;
+}
