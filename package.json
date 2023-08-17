@@ -1,7 +1,6 @@
 {
   "name": "sorting",
   "version": "1.0.0",
-  "main": "index.js",
   "homepage": "https://gadgetadd.github.io/sorting/",
   "scripts": {
     "start": "parcel src/*.html",
