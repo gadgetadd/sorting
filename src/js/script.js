@@ -1,3 +1,5 @@
+import { sortStudents } from "./sortStudents";
+
 const defaultArray = [
     { name: 'John', age: 21, grade: 90 },
     { name: 'Jane', age: 20, grade: 85 },
@@ -7,14 +9,8 @@ const defaultArray = [
 ];
 
 const form = document.querySelector('.students-form');
-form.elements.students.value = JSON.stringify(defaultArray);
 const list = document.querySelector('.students-list');
-
-const sortingHandler = (a, b) => (
-    b.grade - a.grade ||
-    a.age - b.age ||
-    a.name.localeCompare(b.name)
-);
+form.elements.students.value = JSON.stringify(defaultArray);
 
 const onFormSubmit = event => {
     event.preventDefault();
@@ -26,7 +22,7 @@ const onFormSubmit = event => {
     } catch (e) {
         return alert('Введіть валідний масив студентів!');
     }
-    const markup = students.sort(sortingHandler).map(({ name, age, grade }) => {
+    const markup = sortStudents(students).map(({ name, age, grade }) => {
         return `<li><p class="item"> Name: ${name}, Age: ${age}, Grade: ${grade}</p></li>`;
     })
         .join('')
